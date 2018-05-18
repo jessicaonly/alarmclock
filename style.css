@@ -1,30 +1,32 @@
 body {
-  background-color: darkmagenta
+  background-color: #afffea;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 
 
 .modal {
   visibility: hidden;
   position: fixed;
   z-index: 1;
+  padding-top: 100px;
   left: 0;
   top: 0;
-  width: 600px;
-  max-width: 100%;
-  height: 400px;
-  max-height: 100%; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #00c08d; 
+  background-color: #60ffd5;
 }
 
 /* Modal Content/Box */
 .modal-content {
   position: absolute;
-  background-color: #4d70af;
-  margin: 15% auto; 
+  background-color: #41b8c0;
+  margin: auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 100%;
 }
 
 .close {
@@ -42,8 +44,28 @@ body {
 }
 
 .show-modal {
-  opacity: 1;
   visibility: visible;
   transform: scale(1.0);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.button {
+    background-color: #41b8c0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#myStuff {
+  text-align: center;
+  color: #41b8c0;
+  margin: auto;
+  width: 50%;
+  border: 3px solid gray; 
 }
