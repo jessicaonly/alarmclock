@@ -1,6 +1,6 @@
 //let XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 let alarmSound = new Audio();
-alarmSound.src = 'schno.mp3';
+alarmSound.src = 'slayer.mp3';
 let alarmTimer;
 let modal = document.querySelector(".modal");
 let request = new XMLHttpRequest();
@@ -71,7 +71,7 @@ const requestFunction = function(){
 
 
 
-  correctButton.setAttribute('onclick', 'popupFunction(this)');
+  correctButton.setAttribute('onclick', 'correctAnswer(this)');
     
   });
   } else {
@@ -89,7 +89,17 @@ console.log(requestFunction());
 
 
 function popupFunction(){
-  modal.classList.toggle("show-modal");
+// modal.classList.toggle("myModal");
+// if (document.getElementById('myModal').style.visibility == 'hidden'){
+  document.getElementById('myModal').style.visibility = 'visible';
+
+// else {
+//   document.getElementById('myModal').style.visibility = 'hidden';
+// }
+}
+
+function correctAnswer(){
+  document.getElementById('myModal').style.visibility = 'hidden';
 }
 
 function setAlarm(button){
@@ -103,10 +113,10 @@ function setAlarm(button){
     let alarmTime = new Date(alarm.getUTCFullYear(), alarm.getUTCMonth(), alarm.getUTCDate(),  alarm.getUTCHours(), alarm.getUTCMinutes(), alarm.getUTCSeconds());
     let differenceInMs = alarmTime.getTime() - (new Date()).getTime();
 
-    // if (differenceInMs < 0) {
-    //   alert('Set an alarm for the future!');
-    //   return;
-    // }
+    if (differenceInMs < 0) {
+      alert('Set an alarm for the future!');
+      return;
+    }
 
     alarmTimer = setTimeout(initAlarm, differenceInMs, popupFunction);
 
@@ -128,7 +138,7 @@ function initAlarm(callback){
 
 function stopAlarm(){
   alarmSound.pause();
-  alarmSound.currentTime = 0;
+  alarmSound.currentTime = 0
   document.getElementById('alarmOptions').style.display = 'none';
   cancelAlarm(document.getElementById('alarmButton'));
 };
